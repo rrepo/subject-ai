@@ -1,0 +1,19 @@
+Please rate the "subject size" of the post using the following criteria.
+Only return a float number(e.g. 1.0, 2.3, 3.1, etc). Output as a continuous value (e.g. 1.0 to 4.0).
+
+Scale definition:
+Value Classification Description Example Characteristics
+1.0 Singular An individual, clearly identifiable entity in the context I, you, he, she, Sato-san Focus on the perspective, actions, and feelings of one person. The subject of responsibility and opinions is clear.
+2.0 Plural A clear collection of multiple individuals (personal plural) We, you, them, teachers Although it is a "group," the relationships and positions are still relatively clear. Dialogue and sharing of responsibilities are possible.
+3.0 Collective An organizational/institutional entity, a subject with representativeness Company, government, association, university, nation The level of abstraction increases, and the subject includes multiple people, but is itself treated as a single entity. It may be personified.
+4.0 Concept Something that has no substance but is spoken of abstractly Society, culture, gender, race, the universe, the future Most abstract. A perspective that is beyond the reach of the individual or is broad and universal. It is easy to make the locus of responsibility unclear.
+
+Pay attention only to the size of the subject. Do not get involved in the content or tone.
+
+Example:
+"We Japanese work too much" → 2.8 (group + slight generalization)
+"Internet people are really dangerous" → 3.1 (social group)
+"Democracy is collapsing" → 4.0 (completely conceptual)
+
+Rate the subject size of this sentence:
+There is no people on this great green Earth uglier than Somalians
