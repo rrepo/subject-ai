@@ -107,7 +107,7 @@ print(f"🔁 Skipping first {processed_count} sentences")
 remaining_sentences = sentences[processed_count:]
 
 # 並列処理
-with ThreadPoolExecutor(max_workers=1) as executor:
+with ThreadPoolExecutor(max_workers=3) as executor:
     futures = [executor.submit(extract_subject, s) for s in remaining_sentences]
     for future in as_completed(futures):
         result = future.result()

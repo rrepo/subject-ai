@@ -1,0 +1,23 @@
+cd /home/user/ai/llama.cpp
+
+./build/bin/llama-server \
+  -m /media/user/9C6E3B776E3B48F2/mistral/Mistral-Nemo-12B-Instruct-2407-Q6_K.gguf \
+  --threads 8 \
+  --ctx-size 4096 \
+  --gpu-layers 100
+
+
+HIPCXX=/opt/rocm-6.4.2/lib/llvm/bin/clang++ \
+HIP_PATH=/opt/rocm-6.4.2 \
+cmake -S . -B build \
+  -DGGML_HIP=ON \
+  -DGPU_TARGETS=gfx1030 \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_PREFIX_PATH=/opt/rocm-6.4.2/lib/cmake
+
+# ビルド開始
+cmake --build build --config Release -- -j$(nproc)
+
+cd subject-ai
+python3 main.py
+

@@ -1,0 +1,17 @@
+[0;1;32m●[0m lactd.service - GPU Control Daemon
+     Loaded: loaded (]8;;file://user-System-Product-Name/usr/lib/systemd/system/lactd.service/usr/lib/systemd/system/lactd.service]8;;; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)
+     Active: [0;1;32mactive (running)[0m since Sat 2025-08-02 16:31:49 JST; 7min ago
+   Main PID: 6334 (lact)
+      Tasks: 3 (limit: 57539)
+     Memory: 7.2M (peak: 9.4M)
+        CPU: 30ms
+     CGroup: /system.slice/lactd.service
+             └─[0;38;5;245m6334 lact daemon[0m
+
+ 8月 02 16:31:49 user-System-Product-Name systemd[1]: Started lactd.service - GPU Control Daemon.
+ 8月 02 16:31:49 user-System-Product-Name lact[6334]: 2025-08-02T07:31:49.717697Z  INFO lact_daemon::socket: listening on "/run/lactd.sock"
+ 8月 02 16:31:49 user-System-Product-Name lact[6334]: 2025-08-02T07:31:49.717709Z  INFO lact_daemon::server: TCP listener disabled
+ 8月 02 16:31:49 user-System-Product-Name lact[6334]: 2025-08-02T07:31:49.719058Z  WARN lact_daemon::system::power_profiles_daemon: power-profiles-daemon detected, but conflicting actions could not be disabled: daemon version 0.21 is older than minimum required for actions configuration
+ 8月 02 16:31:49 user-System-Product-Name lact[6334]: 2025-08-02T07:31:49.731274Z  INFO lact_daemon::server::handler: AMDGPU DRM initialized
+ 8月 02 16:31:49 user-System-Product-Name lact[6334]: 2025-08-02T07:31:49.733733Z  INFO lact_daemon::server::handler: initialized amdgpu controller for GPU 1002:73BF-148C:2406-0000:0b:00.0 at '/sys/class/drm/card1/device'
+ 8月 02 16:31:49 user-System-Product-Name lact[6334]: 2025-08-02T07:31:49.734438Z  INFO lact_daemon::server::handler: initialized 1 GPUs
