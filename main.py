@@ -9,8 +9,8 @@ import re
 LLAMA_SERVER_URL = "http://127.0.0.1:8080/completion"
 
 # 入出力ファイル
-input_csv = "./input/real_name_text.csv"
-output_csv = "output_real_name_media_full.csv"
+input_csv = "./input/4chan_pol_clean_posts.csv"
+output_csv = "output_anonymous_full.csv"
 row_name = "text"
 
 PROMPT_TEMPLATE = """
