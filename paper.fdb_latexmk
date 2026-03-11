@@ -1,9 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1773203034.01837 "c:/play/subject_ai/paper.tex" "paper.pdf" "paper" 1773203035.17639 0
-  "c:/play/subject_ai/paper.tex" 1773203033 9595 127141138c669522af03f162b6bf2944 ""
+["pdflatex"] 1773210895.42082 "c:/play/subject_ai/paper.tex" "paper.pdf" "paper" 1773210896.57384 0
+  "c:/play/subject_ai/paper.tex" 1773210894 10954 01c065e5e5861f347b3e147ff65e6823 ""
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1773185444 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773186193 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1773185858 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
+  "c:/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tctt1000.tfm" 1773185858 1536 c5729d01ab121276cf99b309129349a0 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1773184827 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1773184827 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1773185430 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -37,6 +38,7 @@
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1773184828 31099 342ef5a582aacbd3346f3cf4579679fa ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb" 1773184828 29078 718ea4567ceff944262b0f5b0800e1d9 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1773185444 138258 6525c253f16cededa14c7fd0da7f67b2 ""
+  "c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb" 1773185444 169201 651a6333c3213b38091f54d2ab2d2cd6 ""
   "c:/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1773187388 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/texlive/2026/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1773185198 40635 c40361e206be584d448876bba8a64a3b ""
   "c:/texlive/2026/texmf-dist/tex/generic/bitset/bitset.sty" 1773185207 33961 6b5c75130e435b2bfdb9f480a09a39f9 ""
@@ -85,9 +87,9 @@
   "imgs/Figure_2.png" 1772684043 12618 858e536d2044917275b96293fc936f8b ""
   "imgs/Figure_4.png" 1772684059 20081 054a6eaa5e12be3abac161651e977e35 ""
   "imgs/Figure_6.png" 1772684076 39928 78c5e98bbcbd410bf2619c00b087feaa ""
-  "paper.aux" 1773203035 2176 f0a19f4fe925304f5435820479e8c6c1 "pdflatex"
-  "paper.out" 1773203035 1134 28944757c59ad2d431baed883286a6b4 "pdflatex"
-  "paper.tex" 1773203033 9595 127141138c669522af03f162b6bf2944 ""
+  "paper.aux" 1773210896 2693 8308c2129df0722c04cb4d1fac4334ad "pdflatex"
+  "paper.out" 1773210896 1412 1a3c64b33b41cc8b59fd0ff02b8a3a37 "pdflatex"
+  "paper.tex" 1773210894 10954 01c065e5e5861f347b3e147ff65e6823 ""
   (generated)
   "paper.aux"
   "paper.log"

@@ -43,7 +43,7 @@ appropriate use of the singular form.
 Relatedly, numerous studies suggest anonymity increases toxicity and behavioral 
 disinhibition under anonymous conditions. Suler (2004) shows that people 
 self-disclose or act out more frequently or intensely than they would in person. 
-Nitschinsk et al.\ (2023) shows that one motivation for being online is to seek 
+Nitschinsk et al.\ (2023) show that one motivation for being online is to seek 
 anonymity in order to self-express or behave toxically.
 
 \section{Methods}
@@ -74,7 +74,7 @@ To compare subject sizes, I defined four stages of subject abstraction:
 \item \textbf{Plural} – a clear collection of individuals (e.g., we, they, teachers).
 \item \textbf{Collective} – an organizational or institutional entity treated 
 as a single subject (e.g., government, company, university).
-\item \textbf{Abstract} – highly generalized or conceptual entities 
+\item \textbf{Concept} – highly generalized or conceptual entities 
 (e.g., society, humanity, the nation).
 \end{enumerate}
 
@@ -83,9 +83,8 @@ As the stages progress, the level of abstraction increases.
 \subsection{LLM Analysis}
 
 To scale subject size automatically, I used the 
-\texttt{Mistral-Nemo-12B-Instruct-2407-Q6\_K} large language model. 
-This model was selected for its balance between performance and 
-computational efficiency in structured text analysis.
+\texttt{Mistral-Nemo-12B-Instruct-2407-Q6\_K} large language model.
+The model was executed locally using llama.cpp and was selected for its balance between performance and computational efficiency in structured text analysis.
 
 A zero-shot prompt was used to isolate the ``size'' of the subject 
 independently from emotional tone or sentiment.
@@ -136,20 +135,20 @@ kernel density estimation (KDE), and cumulative distribution functions (CDF).
 \centering
 \includegraphics[width=0.7\linewidth]{imgs/Figure_2.png}
 \caption{Boxplot comparison of subject size between posts by US politicians and 4chan /pol/ users.}
+\label{fig:boxplot}
 \end{figure}
 
-The boxplot (Figure 1) shows that both datasets exhibit a similar spread,
-although the distribution for 4chan posts is slightly shifted toward
+The boxplot (Figure~\ref{fig:boxplot}) shows that both datasets exhibit a similar spread, although the distribution for 4chan posts is slightly shifted toward 
 higher subject abstraction levels.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\linewidth]{imgs/Figure_6.png}
 \caption{Kernel density estimation (KDE) of subject size distributions for the two datasets.}
+\label{fig:kde}
 \end{figure}
 
-The KDE plot (Figure 2) further illustrates that the distributions strongly
-overlap. Although the peak of the 4chan distribution is slightly higher,
+The KDE plot (Figure~\ref{fig:kde}) further illustrates that the distributions strongly overlap. Although the peak of the 4chan distribution is slightly higher,
 both groups share a large portion of their density across similar ranges
 of subject abstraction.
 
@@ -157,10 +156,10 @@ of subject abstraction.
 \centering
 \includegraphics[width=0.7\linewidth]{imgs/Figure_4.png}
 \caption{Cumulative distribution function (CDF) comparison of subject size distributions.}
+\label{fig:cdf}
 \end{figure}
 
-The cumulative distribution functions (Figure 4) highlight subtle differences
-between the two distributions. These differences correspond to the result of
+The cumulative distribution functions (Figure~\ref{fig:cdf}) highlight subtle differences. These differences correspond to the result of
 the Kolmogorov–Smirnov test.
 
 A Welch's t-test indicated a statistically significant difference between
@@ -240,10 +239,52 @@ The online disinhibition effect.
 
 \bibitem{takahashi2026}
 Takahashi, N. (2026).
-4chan data collection script.
+Subject abstraction analysis code and data collection scripts.
 GitHub repository.
 \url{https://github.com/rrepo/subject-ai/blob/main/4chan.py}
 
 \end{thebibliography}
+
+\appendix
+
+\section{LLM Prompt Used for Subject Size Evaluation}
+
+The following prompt was used to instruct the LLM to evaluate the
+subject abstraction level of each sentence.
+
+\begin{verbatim}
+Please rate the "subject size" of the post using the following criteria.
+Only return a float number (e.g. 1.0, 2.3, 3.1). The number must include
+a decimal. Output as a continuous value between 1.0 and 4.0.
+
+Scale definition:
+
+1.0 Singular
+An individual, clearly identifiable entity in the context
+Examples: I, you, he, she, Sato-san
+
+2.0 Plural
+A clear collection of multiple individuals
+Examples: we, you, them, teachers
+
+3.0 Collective
+An organizational or institutional entity treated as a single subject
+Examples: company, government, association, university, nation
+
+4.0 Concept
+Highly abstract conceptual entities
+Examples: society, culture, gender, race, the universe, the future
+
+Pay attention only to the size of the subject.
+Do not consider the emotional tone or content of the sentence.
+
+Rate the subject size of this sentence:
+{input}
+
+Examples:
+"We Japanese work too much" → 2.8
+"Internet people are really dangerous" → 3.1
+"Democracy is collapsing" → 4.0
+\end{verbatim}
 
 \end{document}
