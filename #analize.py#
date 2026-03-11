@@ -1,0 +1,33 @@
+import pandas as pd
+
+# CSVファイルのパス（例: "data.csv"）
+csv_path = "./output/output_anonymous_full.csv"
+# csv_path = "./output/output_real_name_media_full.csv"
+
+# CSVを読み込む（ヘッダー付きでカンマ区切り）
+df = pd.read_csv(csv_path)
+
+# スコア列を数値に変換（万一文字列として読み込まれていた場合のため）
+df["Score"] = pd.to_numeric(df["Score"], errors="coerce")
+
+# 欠損値を除外（NaN）
+scores = df["Score"].dropna()
+
+# 統計量の計算
+mean_score = scores.mean()
+median_score = scores.median()
+std_score = scores.std()
+min_score = scores.min()
+max_score = scores.max()
+count = scores.count()
+
+# 結果の表示
+print("件数:", count)
+print("平均:", mean_score)
+print("中央値:", median_score)
+print("標準偏差:", std_score)
+print("最小値:", min_score)
+print("最大値:", max_score)
+
+
+
