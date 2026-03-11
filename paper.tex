@@ -107,6 +107,11 @@ whether the distributions differ significantly.
 Cohen's $d$ was calculated to measure effect size. The significance 
 level for all tests was set to $\alpha = 0.05$.
 
+All scripts used for the analysis, including data cleaning,
+LLM inference, and statistical analysis, are publicly available
+in the GitHub repository listed in the references to ensure
+reproducibility.
+
 \section{Results}
 
 The analysis revealed distinct characteristics in the subject size distributions.
@@ -148,9 +153,21 @@ higher subject abstraction levels.
 \label{fig:kde}
 \end{figure}
 
-The KDE plot (Figure~\ref{fig:kde}) further illustrates that the distributions strongly overlap. Although the peak of the 4chan distribution is slightly higher,
+The KDE plot (Figure~\ref{fig:kde}) further illustrates that the distributions roughly overlap. Although the peak of the 4chan distribution is slightly higher,
 both groups share a large portion of their density across similar ranges
 of subject abstraction.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{imgs/Figure_1.png}
+\caption{Histogram of subject size distributions for posts by US politicians and 4chan /pol/ users.}
+\label{fig:hist}
+\end{figure}
+
+The histogram (Figure~\ref{fig:hist}) provides a direct view of the raw distribution of subject size values. 
+Both datasets show a concentration of observations in the lower to middle range of the scale, particularly between values near 1 and 3. 
+While the overall shapes of the distributions are similar, the 4chan data exhibits a slightly greater frequency of higher subject size values, 
+which is consistent with the small shift observed in the boxplot and KDE analyses.
 
 \begin{figure}[h]
 \centering
@@ -241,7 +258,7 @@ The online disinhibition effect.
 Takahashi, N. (2026).
 Subject abstraction analysis code and data collection scripts.
 GitHub repository.
-\url{https://github.com/rrepo/subject-ai/blob/main/4chan.py}
+\url{https://github.com/rrepo/subject-ai}
 
 \end{thebibliography}
 
