@@ -1,14 +1,249 @@
 \documentclass{article}
 
-\title{Subject Size in Political vs Anonymous Speech}
-\author{Your Name}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{Does Anonymity Inflate the Subject?\\
+A Comparative LLM-Based Analysis of Political and 4chan Discourse}
+
+\author{Nazuki Takahashi}
+
+\date{}
 
 \begin{document}
 
 \maketitle
 
+\begin{abstract}
+This study analyzes subject size in online posts using the 
+\texttt{Mistral-Nemo-12B-Instruct-2407-Q6\_K} LLM and compares subject sizes 
+between posts written by identified politicians and anonymous 4chan users. 
+The study investigates whether anonymous users employ larger subjects, as 
+criticized by Schopenhauer. The statistical results show a statistically 
+significant difference between the two groups (politicians: 2.10, 4chan: 2.18). 
+However, the effect size is small, suggesting that anonymity does not strongly 
+affect subject size in online communication.
+\end{abstract}
+
 \section{Introduction}
 
-This study investigates the linguistic characteristics of subject usage.
+\begin{quote}
+``A particularly ludicrous impertinence of such anonymous critics is that they,
+like kings, speak in the first-person plural `we'; whereas they should speak
+not in the plural we but, at most, in the singular.'' (Schopenhauer, 1851)
+\end{quote}
+
+Arthur Schopenhauer criticizes anonymous writers for their use of the 
+first-person plural ``we,'' arguing that such usage falsely projects authority 
+and collective legitimacy. According to him, anonymous authors tend to use the 
+first-person plural rather than the first-person singular, contrary to the 
+appropriate use of the singular form.
+
+Relatedly, numerous studies suggest anonymity increases toxicity and behavioral 
+disinhibition under anonymous conditions. Suler (2004) shows that people 
+self-disclose or act out more frequently or intensely than they would in person. 
+Nitschinsk et al.\ (2023) shows that one motivation for being online is to seek 
+anonymity in order to self-express or behave toxically.
+
+\section{Methods}
+
+\subsection{Data}
+
+To score subject sizes, I used the dataset \textit{Social Media Posts from US 
+Politicians} (Damarla, 2020), consisting of approximately 5000 posts. 
+For 4chan posts, I collected approximately 5000 posts from the /pol/ subforum.
+
+Since 4chan data contains raw HTML and platform-specific syntax (e.g., greentext 
+or post citations), I wrote a Python script to clean and normalize the text. 
+This script removed HTML tags, converted character entities, and stripped 
+post-ID references to ensure data consistency. The source code for this 
+collection and cleaning process is available in the references.
+
+The scripts used for data collection and preprocessing are publicly available at:
+
+\url{https://github.com/rrepo/subject-ai}
+
+\subsection{Subject Scale}
+
+To compare subject sizes, I defined four stages of subject abstraction:
+
+\begin{enumerate}
+\item \textbf{Singular} – an individual, clearly identifiable entity in context 
+(e.g., I, you, he, she, a named person).
+\item \textbf{Plural} – a clear collection of individuals (e.g., we, they, teachers).
+\item \textbf{Collective} – an organizational or institutional entity treated 
+as a single subject (e.g., government, company, university).
+\item \textbf{Abstract} – highly generalized or conceptual entities 
+(e.g., society, humanity, the nation).
+\end{enumerate}
+
+As the stages progress, the level of abstraction increases.
+
+\subsection{LLM Analysis}
+
+To scale subject size automatically, I used the 
+\texttt{Mistral-Nemo-12B-Instruct-2407-Q6\_K} large language model. 
+This model was selected for its balance between performance and 
+computational efficiency in structured text analysis.
+
+A zero-shot prompt was used to isolate the ``size'' of the subject 
+independently from emotional tone or sentiment.
+
+\begin{itemize}
+\item n\_predict: 400
+\item temperature: 0.4
+\item top\_k: 40
+\item top\_p: 0.95
+\item repeat\_penalty: 1.18
+\end{itemize}
+
+\subsection{Statistical Tests}
+
+To compare subject sizes between politicians and 4chan users, 
+Welch's t-test was conducted, which is robust to unequal variances. 
+Additionally, a Kolmogorov–Smirnov (KS) test was used to evaluate 
+whether the distributions differ significantly.
+
+Cohen's $d$ was calculated to measure effect size. The significance 
+level for all tests was set to $\alpha = 0.05$.
+
+\section{Results}
+
+The analysis revealed distinct characteristics in the subject size distributions.
+
+Posts by US politicians had a mean subject size of 2.10 ($SD = 1.01$), 
+with a median of 1.7. In contrast, 4chan /pol/ posts had a slightly higher 
+mean of 2.18 ($SD = 0.99$) and a median of 2.0.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccccc}
+\hline
+Dataset & N & Mean & Median & Std. Dev & Min & Max \\
+\hline
+US Politicians & 4733 & 2.10 & 1.7 & 1.01 & 1.0 & 4.5 \\
+4chan /pol/ & 4960 & 2.18 & 2.0 & 0.99 & 1.0 & 4.5 \\
+\hline
+\end{tabular}
+\caption{Subject size statistics for the two datasets}
+\end{table}
+
+To visualize the distributions, we compared subject sizes using boxplots,
+kernel density estimation (KDE), and cumulative distribution functions (CDF).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{imgs/Figure_2.png}
+\caption{Boxplot comparison of subject size between posts by US politicians and 4chan /pol/ users.}
+\end{figure}
+
+The boxplot (Figure 1) shows that both datasets exhibit a similar spread,
+although the distribution for 4chan posts is slightly shifted toward
+higher subject abstraction levels.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{imgs/Figure_6.png}
+\caption{Kernel density estimation (KDE) of subject size distributions for the two datasets.}
+\end{figure}
+
+The KDE plot (Figure 2) further illustrates that the distributions strongly
+overlap. Although the peak of the 4chan distribution is slightly higher,
+both groups share a large portion of their density across similar ranges
+of subject abstraction.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{imgs/Figure_4.png}
+\caption{Cumulative distribution function (CDF) comparison of subject size distributions.}
+\end{figure}
+
+The cumulative distribution functions (Figure 4) highlight subtle differences
+between the two distributions. These differences correspond to the result of
+the Kolmogorov–Smirnov test.
+
+A Welch's t-test indicated a statistically significant difference between
+the groups ($t = -4.04$, $p < 0.001$). However, the effect size was small
+(Cohen's $d = -0.082$).
+
+The Kolmogorov–Smirnov test also showed that the distributions differ
+significantly ($D = 0.094$, $p < 0.001$).
+
+\section{Discussion}
+
+The analysis reveals that posts on 4chan /pol/ exhibit a slightly higher mean 
+subject size (2.18) compared to those of US politicians (2.10). Although the 
+difference is statistically significant, the small effect size suggests that 
+anonymity does not dramatically inflate subject abstraction as Schopenhauer's 
+critique might imply.
+
+Anonymous users frequently discuss broad social categories such as ``they'' 
+or ``the people,'' which may slightly increase abstraction levels. This 
+pattern is consistent with the online disinhibition effect (Suler, 2004), 
+where anonymity encourages individuals to speak more freely about collective 
+entities.
+
+However, politicians also frequently employ collective subjects (e.g., 
+``our government,'' ``our nation''), which reduces the difference between 
+the two groups. The high overlap between distributions suggests that online 
+discourse itself encourages collective framing regardless of anonymity.
+
+\subsection{Limitations and Future Research}
+
+Several factors may influence these results:
+
+\begin{itemize}
+\item Platform differences between 4chan and Twitter
+\item Topic differences between political communication and imageboard discussion
+\item Limitations of the subject scale definition
+\end{itemize}
+
+Future research should separate grammatical person (e.g., ``we'') from 
+conceptual abstraction (e.g., ``the nation''). Expanding the dataset to other 
+platforms such as Reddit or parliamentary speech corpora would provide 
+broader insight into how digital communication shapes subject abstraction.
+
+\section{Conclusion}
+
+This study examined subject usage in online discourse by comparing subject 
+abstraction in posts from US politicians and anonymous 4chan users.
+
+Although 4chan posts showed a slightly higher average subject size, the 
+effect size was small. This suggests that anonymity alone does not 
+substantially change how people frame the subject of their statements.
+
+Instead, both identified and anonymous speakers appear to rely on similar 
+ranges of subject abstraction when communicating in online environments.
+
+\begin{thebibliography}{9}
+
+\bibitem{damarla2020}
+Damarla, R. (2020).
+\textit{Social Media Posts from US Politicians}.
+Kaggle dataset.
+
+\bibitem{nitschinsk2023}
+Nitschinsk, J., et al. (2023).
+Online anonymity and behavioral expression.
+\textit{Procedia Computer Science}.
+\url{https://www.sciencedirect.com/science/article/pii/S1877050925030935}
+
+\bibitem{schopenhauer1851}
+Schopenhauer, A. (1851).
+\textit{Parerga and Paralipomena}.
+
+\bibitem{suler2004}
+Suler, J. (2004).
+The online disinhibition effect.
+\textit{CyberPsychology \& Behavior}, 7(3), 321–326.
+
+\bibitem{takahashi2026}
+Takahashi, N. (2026).
+4chan data collection script.
+GitHub repository.
+\url{https://github.com/rrepo/subject-ai/blob/main/4chan.py}
+
+\end{thebibliography}
 
 \end{document}
