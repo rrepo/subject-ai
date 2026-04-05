@@ -1,9 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1774848569.73539 "paper.tex" "paper.pdf" "paper" 1774848571.12921 0
+["pdflatex"] 1775370868.00549 "c:/play/subject_ai/paper.tex" "paper.pdf" "paper" 1775370869.24765 2
   "Figure_1.png" 1772684027 18099 399cc31ef34b749577e1d2ac8bed547f ""
   "Figure_2.png" 1772684043 12618 858e536d2044917275b96293fc936f8b ""
   "Figure_4.png" 1772684059 20081 054a6eaa5e12be3abac161651e977e35 ""
   "Figure_6.png" 1772684076 39928 78c5e98bbcbd410bf2619c00b087feaa ""
+  "c:/play/subject_ai/paper.tex" 1775370865 12509 a829b7b9058723d9d346c3654179e5cc ""
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1774838222 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1774838915 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1774838618 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -87,9 +88,9 @@
   "c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1774841789 5619402 045890036aad9b52b154ef5568e59d3a ""
   "c:/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774841967 3636408 a89d427f03d82edbf8033814fcac9b92 ""
   "c:/texlive/2026/texmf.cnf" 1774841766 713 e69b156964470283e0530f5060668171 ""
-  "paper.aux" 1774848570 3025 17ca1be51ea17b9207af745166825b3d "pdflatex"
-  "paper.out" 1774848570 1412 1a3c64b33b41cc8b59fd0ff02b8a3a37 "pdflatex"
-  "paper.tex" 1774793512 12084 aa5c3d6a677b9b34fde64cf54abee86c ""
+  "paper.aux" 1775370869 3025 5a8143fba6731024b6f85a1e473a6ac7 "pdflatex"
+  "paper.out" 1775370869 1412 1a3c64b33b41cc8b59fd0ff02b8a3a37 "pdflatex"
+  "paper.tex" 1775370865 12509 a829b7b9058723d9d346c3654179e5cc ""
   (generated)
   "paper.aux"
   "paper.log"
